@@ -1,0 +1,216 @@
+<div class="animated fadeIn">
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="col-sm-12">
+      <div class="card">
+        <form [formGroup]="avaliacaoSimples" (ngSubmit)="enviaFormulario()" class="form-horizontal">
+          <div class="card-header">
+            <i class="fa fa-edit"></i>Avaliação Simples
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-primary">Aluno em Avaliação Fisica</h6>
+            <hr>
+            <div class="row">
+              <div class="form-group col-sm-8">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="nomeAluno" formControlName="nomeAluno"
+                  placeholder="Selecione o aluno" [attr.disabled]="true">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="nascimento">Data Atual</label>
+                <input type="text" class="form-control" id="dataAtual" formControlName="dataAtual"
+                  placeholder="dd/mm/aaaa" [attr.disabled]="true">
+              </div>
+            </div>
+            <h6 class="card-subtitle mb-2 text-primary">Perímetros (em cm)</h6>
+            <hr>
+            <!--Torax, Cintura, Adbome e Quadril-->
+            <div class="form-group row">
+              <label class="col-sm-1 col-form-label"></label>
+              <div class="col-sm-2">
+                <label for="hf-text"></label>
+              </div>
+              <div class="col-sm-3">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Outros Perímetros</h6>
+              </div>
+              <div class="col-sm-2">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Direito(a)</h6>
+              </div>
+              <div class="col-sm-2">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Esquerdo(a)</h6>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-1 col-form-label">Tórax</label>
+              <div class="col-sm-2">
+                <input type="text" id="torax" name="hf-text" class="form-control" placeholder="00.0" autocomplete="text">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" id="torax-outros-perimetros" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="torax-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="torax-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-1 col-form-label">Cintura</label>
+              <div class="col-sm-2">
+                <input type="text" id="cintura" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" id="cintura-outros-perimetros" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="cintura-direita" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="cintura-esquerda" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-1 col-form-label">Abdome</label>
+              <div class="col-sm-2">
+                <input type="text" id="abdome" name="hf-text" class="form-control" placeholder="00.0" autocomplete="text">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" id="abdome-outros-perimetros" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="abdome-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="abdome-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-1 col-form-label">Quadril</label>
+              <div class="col-sm-2">
+                <input type="text" id="quadril" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" id="quadril-outros-perimetros" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="quadril-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="quadril-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+            <hr>
+            <!--Antebraço, Braço, Coxa, Panturilha-->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div class="col-sm-2">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Direito(a)</h6>
+              </div>
+              <div class="col-sm-3">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Esquerdo(a)</h6>
+              </div>
+              <div class="col-sm-3">
+                <h6 class="card-subtitle mb-2 text-success mt-2 py-0">Padrão de pontos anatômicos</h6>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="hf-text">Antebraço</label>
+              <div class="col-sm-2">
+                <input type="text" id="antebraco-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="antebraco-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="form-check ml-5">
+                <input class="form-check-input" type="radio" name="padraoAnatomico" id="radio1" value="Pollock" formControlName="padraoAnatomico"  (click)="radioButton(false)">
+                <label class="form-check-label" for="radio1">
+                  Pollock
+                </label>
+              </div>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="radio" name="padraoAnatomico" id="radio2" value="McArdle" formControlName="padraoAnatomico"  (click)="radioButton(false)">
+                <label class="form-check-label" for="radio2">
+                  McArdle
+                </label>
+              </div>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="radio" name="padraoAnatomico" id="radio3" value="Lohman" formControlName="padraoAnatomico" (click)="radioButton(false)">
+                <label class="form-check-label" for="radio3">
+                  Lohman
+                </label>
+              </div>
+              <div class="form-check ml-3">
+                <input class="form-check-input" type="radio" name="padraoAnatomico" id="radio4" (click)="radioButton(true)">
+                <label class="form-check-label" for="radio3=4">
+                  Outro
+                </label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Braço</label>
+              <div class="col-sm-2">
+                <input type="text" id="braco-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="braco-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-4 ml-4">
+                <input type="text" id="outro-pontoanatomico" name="" class="form-control" placeholder="Informe o nome"
+                  autocomplete="text" formControlName="padraoAnatomico" *ngIf="inputText">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Coxa</label>
+              <div class="col-sm-2">
+                <input type="text" id="coxa-direita" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="coxa-esquerda" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Panturilha</label>
+              <div class="col-sm-2">
+                <input type="text" id="panturilha-direito" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+              <div class="col-sm-2">
+                <input type="text" id="panturilha-esquerdo" name="hf-text" class="form-control" placeholder="00.0"
+                  autocomplete="text">
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <button type="reset" class="btn btn-sm btn-warning text-light"><i class="fa fa-refresh"></i>
+              Resetar</button>
+            <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-location-arrow"></i>
+              Encaminhar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>

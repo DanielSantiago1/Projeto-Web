@@ -1,0 +1,149 @@
+<div class="animated fadeIn">
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div class="col-sm-12">
+            <div class="card">
+                <form [formGroup]="AlunoForm" (ngSubmit)="criarAluno()">
+                    <div class="card-header">
+                        <i class="fa fa-edit"></i>Cadastro de Aluno
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-right text-warning"><b class="text-danger">* </b> São campos
+                            obrigatórios</h6>
+                        <h6 class="card-subtitle mb-2 text-primary">Dados do Aluno</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-sm-8">
+                                <label for="name">Nome <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" id="nome" formControlName="nome"
+                                    placeholder="Nome completo" [ngClass]="verificaCampo('nome')">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="nascimento">Data de Nascimento <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" id="nascimento" formControlName="dataNascimento"
+                                    placeholder="dd/mm/aaaa" [ngClass]="verificaCampo('dataNascimento')" bsDatepicker
+                                    [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label for="sexo">Sexo <b class="text-danger">*</b></label>
+                                <select id="sexo" formControlName="sexo" class="form-control"
+                                    placeholder="Selecione o sexo" [ngClass]="verificaCampo('sexo')">
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Feminino</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="CPF">CPF <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" id="cpf" formControlName="cpf"
+                                    placeholder="000.000.000-00" mask="000.000.000-00" (blur)="VerificaCPF()"
+                                    [ngClass]="InputCPF">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="responsavel">Responsável</label>
+                                <input type="text" class="form-control" id="responsavel" formControlName="responsavel"
+                                    placeholder="Nome do pesponsável">
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-primary">Endereço do Aluno</h6>
+                        <hr>
+                        <div formGroupName="endereco">
+                            <div class="row">
+                                <div class="form-group col-sm-3">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" class="form-control" id="cep" formControlName="cep"
+                                        placeholder="00000-000" mask="00000-000" (blur)="consultaCEP()">
+                                </div>
+                                <div class="form-group col-sm-5">
+                                    <label for="rua">Logradouro <b class="text-danger">*</b></label>
+                                    <input type="text" class="form-control" id="rua" formControlName="rua"
+                                        placeholder="logradouro" [ngClass]="verificaCampo('endereco.rua')">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="bairro">Bairro <b class="text-danger">*</b></label>
+                                    <input type="text" class="form-control" id="bairro" formControlName="bairro"
+                                        placeholder="Bairro" [ngClass]="verificaCampo('endereco.bairro')">
+                                </div>
+                            </div>
+                            <!--/.row-->
+                            <div class="row">
+                                <div class="form-group col-sm-3">
+                                    <label for="uf">Estado <b class="text-danger">*</b></label>
+                                    <input type="text" class="form-control" id="estado" formControlName="estado"
+                                        placeholder="Estado" [ngClass]="verificaCampo('endereco.estado')">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="cidade">Cidade <b class="text-danger">*</b></label>
+                                    <input type="text" class="form-control" id="cidade" formControlName="cidade"
+                                        placeholder="Cidade" [ngClass]="verificaCampo('endereco.cidade')">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento"
+                                        formControlName="complemento" placeholder="Complemento">
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-primary">Contatos do Aluno</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" class="form-control" id="telefone" formControlName="telefone"
+                                    placeholder="(00) 0000-0000" mask="(00) 0000-0000">
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="telefone">Celular <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" id="celular" formControlName="celular"
+                                    placeholder="(00) 00000-0000" mask="(00) 00000-0000"
+                                    [ngClass]="verificaCampo('celular')">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="email">E-mail <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" id="email" formControlName="email"
+                                    placeholder="exemplo@email.com.br" [ngClass]="verificaCampo('email')">
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-primary">Caracteristicas do Aluno</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label for="faixaEtaria">Faixa Etária</label>
+                                <select id="faixaEtaria" class="form-control" formControlName="faixaEtaria">
+                                    <option value="Adolescente">Adolescente</option>
+                                    <option value="Adulto">Adulto</option>
+                                    <option value="Idoso">Idoso</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="etnia">Etnia</label>
+                                <select id="etnia" class="form-control" formControlName="etnia">
+                                    <option value="Branco">Branco</option>
+                                    <option value="Negro">Negro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-primary">Observações</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="observacao">Observação</label>
+                                <textarea id="observacao" class="form-control" formControlName="descricao"
+                                    placeholder="Faça uma observação com até 500 palavras"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancelar</button> -->
+                        <button type="reset" class="btn btn-sm btn-warning text-light"><i class="fa fa-refresh"></i>
+                            Resetar</button>
+                        <button type="submit" class="btn btn-sm btn-primary pull-right"><i
+                                class="fa fa-location-arrow"></i> Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+</div>

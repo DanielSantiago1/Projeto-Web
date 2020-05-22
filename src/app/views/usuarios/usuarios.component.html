@@ -1,0 +1,62 @@
+<div class="animated fadeIn">
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="col-sm-6">
+      <div class="card">
+        <form [formGroup]="ContaForm" (ngSubmit)="criarUsuario()">
+          <div class="card-header">
+            <i class="fa fa-edit"></i>Cadastro do Usuário
+          </div>
+          <div class="card-body bg-body">
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control bg-input" id="nome" formControlName="nome"
+                  [ngClass]="validacaoCSS('nome')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label for="email">Email</label>
+                <input type="text" class="form-control bg-input" id="email" formControlName="email"
+                  [ngClass]="validacaoCSS('email')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label for="perfil">Perfil</label>
+                <select class="form-control bg-input" id="perfil" formControlName="perfil"
+                  [ngClass]="validacaoCSS('perfil')">
+                  <option value=''></option>
+                  <option value="AVALIADOR">AVALIADOR</option>
+                  <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label for="email">Senha</label>
+                <input type="password" class="form-control bg-input" id="senha" formControlName="senha"
+                  [ngClass]="validacaoCSS('senha')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label for="email">Confirmar senha</label>
+                <input type="password" class="form-control bg-input" id="confirmaSenha" formControlName="confirmaSenha"
+                  (blur)="validacaoCSS('confirmaSenha')" [ngClass]="InputConfirmaSenha">
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="reset" class="btn btn-sm btn-danger text-light" (click)="resetarFormulario()">
+              CANCELAR
+            </button>
+            <button type="submit" class="btn btn-sm btn-primary pull-right">
+              <i class="fa fa-floppy-o"></i> SALVAR
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

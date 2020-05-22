@@ -1,0 +1,61 @@
+<app-header
+  [navbarBrandRouterLink]="['/dashboard']"
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/logo-img/logo-ade.fw.png', width: 60, height: 30, alt: 'ADE-Physical Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/logo-img/logo-ade.fw.png', width: 30, height: 30, alt: 'ADE-Physical Logo'}"
+  [sidebarToggler]="'lg'"
+  [asideMenuToggler]="'lg'">
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/dashboard']">ADE-PHYSICAL</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">  
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <div class="dropdown-header text-center"><strong>Conta</strong></div>
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configurações</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Pagamentos<span class="badge badge-dark">0</span></a>
+        <div class="divider"></div>
+        <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Bloquear conta</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Sair</a>
+      </div>
+    </li>
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <cui-breadcrumb>
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown"></div>
+      </li>
+    </cui-breadcrumb>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <app-aside [fixed]="true" [display]="false" [ngClass]="'test'">
+    <tabset>
+      <tab>
+        <ng-template tabHeading><i class="icon-list"></i></ng-template>
+        <div class="list-group list-group-accent">
+          <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Hoje</div>          
+          <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Ontem</div>
+        </div>
+      </tab>
+    </tabset>
+  </app-aside>
+</div>
+<app-footer>
+  <span>ADE-Physical &copy; 2020</span>
+  <span class="ml-auto">Powered by <a href="https://coreui.io/angular">CoreUI for Angular</a></span>
+</app-footer>

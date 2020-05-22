@@ -1,0 +1,24 @@
+textarea {
+    resize: none;
+    height: 9em;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    margin-top: 0px;
+}
+
+.bg-input{
+    background-color: #ffffff;
+    border: 1px solid #f0f3bd;
+    color: #2ec4b6;
+    font-weight: 600;
+}
+
+.bg-body {
+    background-color: #faf9f9;
+}
