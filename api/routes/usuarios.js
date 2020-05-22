@@ -39,7 +39,7 @@ module.exports = function (app, con) {
 	})
 
 	//LISTAR USUARIOS CADASTRADOS NO SISTEMA
-	app.post('/selecionarUsuarios', function (req, res) {
+	app.get('/selecionarUsuarios', function (req, res) {
 		const body = [req.body.name_user];
 		const sql = `SELECT u.id_usuario, u.email, u.nome, u.perfil FROM usuario AS u`;
 		
@@ -78,9 +78,9 @@ module.exports = function (app, con) {
 		})
 	})
 
-	app.put('/atualizaUsuario', function (req, res) {
-		const body = [req.body.senha];
-		const sql = `UPDATE usuario SET senha = ?`;
+	app.put('/atualizaPerfil', function (req, res) {
+		const body = [req.body.perfil, req.body.id_usuario];
+		const sql = `UPDATE usuario SET perfil = ? WHERE id_usuario = ?`;
 		
 		con.query(sql, body, function (err, result) {
 			if (err) {
@@ -91,9 +91,22 @@ module.exports = function (app, con) {
 		})
 	})
 
-	app.delete('/deletarUsuario', function (req, res) {
+	app.post('/deletarUsuario', function (req, res) {
 		const body = [req.body.id_usuario];
 		const sql = `DELETE FROM usuario WHERE id_usuario = ?`;
+		
+		con.query(sql, body, function (err, result) {
+			if (err) {
+				res.send([res.statusCode])
+			} else {
+				res.send([res.statusCode, result])
+			}
+		})
+	})
+
+	app.post('/buscarUsuario', function (req, res) {
+		const body = [req.body.nome];
+		const sql = `SELECT u.nome, u.email, u.perfil FROM usuario AS u WHERE u.nome LIKE '%${body}%'`;
 		
 		con.query(sql, body, function (err, result) {
 			if (err) {

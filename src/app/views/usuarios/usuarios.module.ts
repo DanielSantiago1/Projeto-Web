@@ -1,3 +1,5 @@
+import { UsuariosService } from './../../services/usuarios.service';
+import { ListaComponent } from './lista.component';
 // Angular
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +25,10 @@ import { PerfilRoutingModule } from './usuarios-routing.module';
 // Modal Component
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+import { MatTableModule } from '@angular/material/table';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -34,10 +40,16 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ReactiveFormsModule,
     CollapseModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatTableModule,
+    MatPaginatorModule,
   ],
   declarations: [
-    UsuariosComponent
+    UsuariosComponent,
+    ListaComponent
+  ],
+  providers: [
+    UsuariosService
   ]
 })
 export class UsuariosModule { }

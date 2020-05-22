@@ -1,8 +1,8 @@
+import { AuthService } from './../core/auth.service';
 import { Router } from '@angular/router';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../core/auth.service';
 
 @Component({
   templateUrl: './login.component.html',

@@ -41,7 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './views/home/home.module';
+import { HomeModule } from './views/login/login.module';
 
 @NgModule({
   imports: [

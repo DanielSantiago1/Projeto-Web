@@ -12,6 +12,21 @@ export class UsuariosService {
     return this.http.get(`${url}/selecionarUsuarios`, httpOptions);
   }
 
+  atualizarPerfil(id_usuario, perfil) {
+    let body = { id_usuario, perfil };
+    return this.http.put(`${url}/atualizaPerfil`, body, httpOptions);
+  }
+
+  deletarUsuario(id_usuario) {
+    let body = { id_usuario };
+    return this.http.post(`${url}/deletarUsuario`, body, httpOptions);
+  }
+
+  buscarUsuario(nome){
+    let body = { nome };
+    return this.http.post(`${url}/buscarUsuario`, body, httpOptions);
+  }
+
   criarUsuario(nome, email, perfil, senha) {
     let body = { nome, email, perfil, senha };
     return this.http.post(`${url}/criarUsuario`, body, httpOptions);

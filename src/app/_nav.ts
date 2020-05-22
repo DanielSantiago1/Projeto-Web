@@ -55,6 +55,11 @@ export const navItems: INavData[] = [
     url: '/usuarios/criar',
     icon: 'icon-user',
   },
+  {
+    name: 'Lista de usuários',
+    url: '/usuarios/lista',
+    icon: 'icon-user'
+  }
     
 ];
 

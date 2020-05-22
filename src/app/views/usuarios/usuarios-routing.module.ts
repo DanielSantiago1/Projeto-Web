@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { UsuariosComponent } from './usuarios.component';
+import { ListaComponent } from './lista.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,13 @@ const routes: Routes = [
           title: 'Criar Conta'
         }
       },
+      {
+        path: 'lista',
+        component: ListaComponent,
+        data: {
+          title: 'Lista de usuários'
+        }
+      }
     ]
   }
 ];
