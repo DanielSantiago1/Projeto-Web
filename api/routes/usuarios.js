@@ -7,10 +7,8 @@ module.exports = function (app, con) {
 		
 		con.query(sql, body, function (err, result) {
 			if (err) {
-				console.log(err);
 				res.send([res.statusCode]);
 			} else {
-				console.log(result);
 				res.send([res.statusCode, result.affectedRows]);
 			}
 		})

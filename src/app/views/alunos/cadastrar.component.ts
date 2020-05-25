@@ -180,6 +180,7 @@ export class CadastrarComponent implements OnInit {
           if (resp[0] === 200 && resp[1] === 1) {
             this.toastr.successToastr('Cadastro do aluno foi realizado', 'SUCESSO');
             this.alunoForm.reset();
+            this.inputCPF = '';
           }
         })
     } else {
